@@ -1,0 +1,5 @@
+{
+  "name": "Pre-Dent School Matcher",
+  "description": "An interactive tool for predental students to find dental schools matching their GPA and DAT stats based on 2024 admitted student data.",
+  "requestFramePermissions": []
+}
