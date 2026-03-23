@@ -30,10 +30,15 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         
       - name: Build
-        run: npm run build
+        run: npm run build --if-present
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+          
+      - name: Debug - Show Files Inside the Server
+        run: ls -la
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -41,8 +46,4 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          path: 'dist'
